@@ -1,12 +1,13 @@
-package esercizio4;
+package Esercizio4;
 
 import java.util.Scanner;
 
 public class ContoAllaRovescia {
+    // Modifica la firma del metodo main
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String risposta;
+        Scanner scanner = new Scanner(System.in); // Crea un nuovo scanner
 
+        String risposta;
         do {
             // Chiede all'utente di inserire un numero intero
             System.out.print("Inserisci un numero intero per il conto alla rovescia: ");
@@ -19,11 +20,14 @@ public class ContoAllaRovescia {
 
             // Chiede all'utente se vuole ricominciare
             System.out.print("Vuoi fare un altro conto alla rovescia? (sì/no): ");
-            risposta = scanner.next().toLowerCase();  // Legge la risposta e la converte in minuscolo
+            risposta = scanner.next().toLowerCase();
+
+            // Consuma il newline rimasto dopo next() per evitare problemi
+            scanner.nextLine();
 
         } while (risposta.equals("sì"));
 
         System.out.println("Programma terminato.");
-        scanner.close();
+        scanner.close(); // Chiudi lo scanner alla fine
     }
 }

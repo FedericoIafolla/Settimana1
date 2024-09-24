@@ -1,31 +1,43 @@
-package Esercizio1;
+package Esercizio2;
 
-public class PariDispariBisestile {
+import java.util.Scanner;
 
-    // Metodo per controllare se la lunghezza della stringa è pari
-    public static boolean stringaPariDispari(String str) {
-        return str.length() % 2 == 0;
-    }
+public class NumeroInLettere {
+    public static void main(Scanner scanner) {
+        int numero;
+        boolean validInput = false;
 
-    // Metodo per controllare se un anno è bisestile
-    public static boolean annoBisestile(int anno) {
-        if (anno % 4 == 0) {
-            if (anno % 100 == 0) {
-                return anno % 400 == 0;
+        do {
+            System.out.print("Inserisci un numero intero (0-3): ");
+            if (scanner.hasNextInt()) {
+                numero = scanner.nextInt();
+                scanner.nextLine(); // Consuma il newline
+                switch (numero) {
+                    case 0:
+                        System.out.println("Zero");
+                        validInput = true;
+                        break;
+                    case 1:
+                        System.out.println("Uno");
+                        validInput = true;
+                        break;
+                    case 2:
+                        System.out.println("Due");
+                        validInput = true;
+                        break;
+                    case 3:
+                        System.out.println("Tre");
+                        validInput = true;
+                        break;
+                    default:
+                        System.out.println("Errore: numero non valido. Riprova.");
+                        validInput = false;
+                        break;
+                }
             } else {
-                return true;
+                System.out.println("Errore: input non valido. Riprova.");
+                scanner.nextLine(); // Consuma l'input non valido
             }
-        }
-        return false;
-    }
-
-    public static void main(String[] args) {
-        // Test del metodo stringaPariDispari
-        String testStringa = "ciao";
-        System.out.println("La stringa è pari: " + stringaPariDispari(testStringa));
-
-        // Test del metodo annoBisestile
-        int testAnno = 2024;
-        System.out.println("L'anno è bisestile: " + annoBisestile(testAnno));
+        } while (!validInput);
     }
 }
