@@ -3,27 +3,22 @@ package Esercizio4;
 import java.util.Scanner;
 
 public class ContoAllaRovescia {
-    public static void main(String[] args) {
+    public void contaRovescia() {
         Scanner scanner = new Scanner(System.in);
-        String risposta;
+        int numero;
 
-        do {
-            // Chiede all'utente di inserire un numero intero
+        while (true) {
             System.out.print("Inserisci un numero intero per il conto alla rovescia: ");
-            int numero = scanner.nextInt();
-
-            // Esegue il conto alla rovescia
+            numero = scanner.nextInt();
             for (int i = numero; i >= 0; i--) {
                 System.out.println(i);
             }
 
-            // Chiede all'utente se vuole ricominciare
-            System.out.print("Vuoi fare un altro conto alla rovescia? (sì/no): ");
-            risposta = scanner.next().toLowerCase();  // Legge la risposta e la converte in minuscolo
-
-        } while (risposta.equals("sì"));
-
-        System.out.println("Programma terminato.");
-        scanner.close();
+            System.out.print("Vuoi ricominciare? (y/n): ");
+            String risposta = scanner.next();
+            if (risposta.equalsIgnoreCase("n")) {
+                break;
+            }
+        }
     }
 }

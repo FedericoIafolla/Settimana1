@@ -3,33 +3,34 @@ package Esercizio2;
 import java.util.Scanner;
 
 public class NumeroInLettere {
-    public static void main(String[] args) {
+    public void chiediNumero() {
         Scanner scanner = new Scanner(System.in);
         int numero;
 
-        do {
+        while (true) {
             System.out.print("Inserisci un numero intero tra 0 e 3: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Errore: inserisci un numero valido!");
+                scanner.next(); // Consuma l'input non valido
+            }
             numero = scanner.nextInt();
 
             switch (numero) {
                 case 0:
                     System.out.println("Zero");
-                    break;
+                    return;
                 case 1:
                     System.out.println("Uno");
-                    break;
+                    return;
                 case 2:
                     System.out.println("Due");
-                    break;
+                    return;
                 case 3:
                     System.out.println("Tre");
-                    break;
+                    return;
                 default:
-                    System.out.println("Errore: numero non valido. Riprova.");
-                    break;
+                    System.out.println("Errore: numero fuori dal range, riprova.");
             }
-        } while (numero < 0 || numero > 3);
-
-        scanner.close();
+        }
     }
 }

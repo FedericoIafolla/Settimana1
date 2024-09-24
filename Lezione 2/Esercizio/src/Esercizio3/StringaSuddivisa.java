@@ -3,21 +3,18 @@ package Esercizio3;
 import java.util.Scanner;
 
 public class StringaSuddivisa {
-    public static void main(String[] args) {
+    public void suddividiStringa() {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        do {
-            System.out.print("Inserisci una stringa (o ':q' per uscire): ");
+        while (true) {
+            System.out.print("Inserisci una stringa (':q' per uscire): ");
             input = scanner.nextLine();
-
-            if (!input.equals(":q")) {
-                // Suddivide la stringa in caratteri separati da virgola
-                String[] caratteri = input.split("");
-                System.out.println(String.join(",", caratteri));
+            if (input.equals(":q")) {
+                break;
             }
-        } while (!input.equals(":q"));
-
-        scanner.close();
+            String[] caratteri = input.split("");
+            System.out.println(String.join(",", caratteri));
+        }
     }
 }

@@ -2,30 +2,20 @@ package Esercizio1;
 
 public class PariDispariBisestile {
 
-    // Metodo per controllare se la lunghezza della stringa è pari
-    public static boolean stringaPariDispari(String str) {
-        return str.length() % 2 == 0;
+    // Metodo che verifica se la lunghezza della stringa è pari
+    public boolean stringaPariDispari(String str) {
+        return str.length() % 2 == 0; // Ritorna true se la lunghezza è pari
     }
 
-    // Metodo per controllare se un anno è bisestile
-    public static boolean annoBisestile(int anno) {
+    // Metodo che verifica se l'anno è bisestile
+    public boolean annoBisestile(int anno) {
+        // Controllo per determinare se l'anno è bisestile
         if (anno % 4 == 0) {
             if (anno % 100 == 0) {
-                return anno % 400 == 0;
-            } else {
-                return true;
+                return anno % 400 == 0; // Deve essere divisibile anche per 400
             }
+            return true; // Se è divisibile per 4 e non per 100
         }
-        return false;
-    }
-
-    public static void main(String[] args) {
-        // Test del metodo stringaPariDispari
-        String testStringa = "ciao";
-        System.out.println("La stringa è pari: " + stringaPariDispari(testStringa));
-
-        // Test del metodo annoBisestile
-        int testAnno = 2025;
-        System.out.println("L'anno è bisestile: " + annoBisestile(testAnno));
+        return false; // Non è bisestile
     }
 }
