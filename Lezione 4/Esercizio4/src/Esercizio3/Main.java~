@@ -1,0 +1,25 @@
+package Esercizio3;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creazione dell'array di persone (Dipendenti e Volontari)
+        Persona[] persone = new Persona[5];
+        persone[0] = new DipendenteFullTime("Mario Rossi", "001", 3000, "AMMINISTRAZIONE");
+        persone[1] = new DipendentePartTime("Luca Bianchi", "002", 15, 20, "VENDITE");
+        persone[2] = new Dirigente("Giovanni Verdi", "003", 5000, "PRODUZIONE", 2000);
+        persone[3] = new Volontario("Giacomino Poretti", 68, "CV di Aldo, Giovanni e Giacomo");
+        persone[4] = new Volontario("Giovanni Storti", 67, "CV di Aldo, Giovanni e Giacomo");
+        persone[5] = new Volontario("Aldo Baglio", 65, "CV di Aldo, Giovanni e Giacomo");
+
+        for (Persona persona : persone) {
+            persona.checkIn(); // Chiama il metodo checkIn
+            if (persona instanceof Dipendente) {
+                Dipendente dip = (Dipendente) persona;
+                System.out.println("Matricola: " + dip.getMatricola() + " | Ruolo: " + dip.getRuolo() + " | Salario: " + dip.calculateSalary());
+            } else if (persona instanceof Volontario) {
+                Volontario vol = (Volontario) persona;
+                System.out.println("Nome: " + vol.getNome() + " | Ruolo: " + vol.getRuolo() + " | Età: " + vol.getEta() + " | CV: " + vol.getCv());
+            }
+        }
+    }
+}

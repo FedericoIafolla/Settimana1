@@ -1,0 +1,15 @@
+package Esercizio2;
+
+public class Main {
+    public static void main(String[] args) {
+        Dipendente[] dipendenti = new Dipendente[3];
+        dipendenti[0] = new DipendenteFullTime("001", 3000, "AMMINISTRAZIONE");
+        dipendenti[1] = new DipendentePartTime("002", 15, 20, "VENDITE");
+        dipendenti[2] = new Dirigente("003", 5000, "PRODUZIONE", 2000);
+
+        for (Dipendente dip : dipendenti) {
+            dip.checkIn();
+            System.out.println("Matricola: " + dip.getMatricola() + " | Ruolo: " + dip.getRuolo() + " | Salario: " + dip.calculateSalary());
+        }
+    }
+}
